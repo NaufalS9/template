@@ -14,6 +14,18 @@
 
 	let a = 0;
 	let b = 0;
+
+
+    const loadData = (async () => {
+
+        
+        const response = await fetch('https://dog.ceo/api/breeds/image/random')
+        return await response.json();
+     
+		
+    })()
+
+
 </script>
 
 <main>
@@ -38,6 +50,14 @@
 	<p>{a} - {b} = {a - b}</p>
 	<p>{a} * {b} = {a * b}</p>
 	<p>{a} / {b} = {a / b}</p>
+
+{#await loadData}
+	<p>...waiting</p>
+{:then data}
+	<img src={data.message} alt="Hond"/>
+{:catch error}
+	<p>An error occurred!</p>
+{/await}
 
 </main>
 
