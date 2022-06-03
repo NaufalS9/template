@@ -1,5 +1,5 @@
 <script>
-	let name = 'WELKOM';
+	
 	let textkleur = "WHITE";
 	
 	const handleClick1 = () => {
@@ -36,7 +36,15 @@
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
+	<div class="container">
+		<h1 class="title">
+		  <span class="title-word title-word-1">This</span>
+		  <span class="title-word title-word-2">is</span>
+		  <span class="title-word title-word-3">my</span>
+		  <span class="title-word title-word-4">project</span>
+		</h1>
+	  </div>
+
 	<p><b>Color changer</b></p>
 	<p style="color: {textkleur}">{textkleur} COLOR</p>
 	
@@ -85,13 +93,58 @@
 		margin: 0 auto;
 	}
 
-	h1 {
-		color: #996633;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-		font-family: serif;
+	.title-word {
+  animation: color-animation 4s linear infinite;
 	}
+
+.title-word-1 {
+  --color-1: #DF8453;
+  --color-2: #3D8DAE;
+  --color-3: #E4A9A8;
+	}
+
+.title-word-2 {
+  --color-1: #DBAD4A;
+  --color-2: #ACCFCB;
+  --color-3: #17494D;
+	}
+
+.title-word-3 {
+  --color-1: #ACCFCB;
+  --color-2: #E4A9A8;
+  --color-3: #ACCFCB;
+	}
+
+.title-word-4 {
+  --color-1: #3D8DAE;
+  --color-2: #DF8453;
+  --color-3: #E4A9A8;
+	}
+
+@keyframes color-animation {
+  0%    {color: var(--color-1)}
+  32%   {color: var(--color-1)}
+  33%   {color: var(--color-2)}
+  65%   {color: var(--color-2)}
+  66%   {color: var(--color-3)}
+  99%   {color: var(--color-3)}
+  100%  {color: var(--color-1)}
+}
+
+.container {
+  display: grid;
+  place-items: center;  
+  text-align: center;
+  height: 100vh
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 8.5vw;
+  text-transform: uppercase;
+}
+	
 
 	@media (min-width: 640px) {
 		main {
