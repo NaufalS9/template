@@ -33,9 +33,18 @@
 	
 	let userPromise = getRandomUser();
 
+	const changeColor = (color) => {
+		console.log(color);
+		document.body.style.background = color; 
+		}
 </script>
 
 <main>
+	<button on:click={() => changeColor('#D2691E')}>Chocolate</button>
+	<button on:click={() => changeColor('#FF7F50')}>Coral</button> 
+	<button on:click={() => changeColor('#DA70D6')}>Purple</button>
+	<button on:click={() => changeColor('#6B8E23')}>Green</button>
+
 	<div class="container">
 		<h1 class="title">
 		  <span class="title-word title-word-1">This</span>
